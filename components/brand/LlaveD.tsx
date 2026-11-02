@@ -16,14 +16,14 @@ export function LlaveD({ className = "", titulo = "DIMAPESA" }: { className?: st
 
 /** Una sola llave del logotipo; `cierre` la refleja para hacer "}".
  *  `puntos` la rellena con una trama de puntos, como las partículas del inicio. */
-export function Llave({ cierre = false, puntos = false, className = "" }: { cierre?: boolean; puntos?: boolean; className?: string }) {
-  const id = `trama-${cierre ? "c" : "a"}`;
+export function Llave({ cierre = false, puntos = false, trama = 5, className = "" }: { cierre?: boolean; puntos?: boolean; trama?: number; className?: string }) {
+  const id = `trama-${cierre ? "c" : "a"}-${trama}`;
   return (
     <svg viewBox="629 662 131 341" className={className} aria-hidden preserveAspectRatio="xMidYMid meet">
       {puntos && (
         <defs>
-          <pattern id={id} width="5" height="5" patternUnits="userSpaceOnUse">
-            <circle cx="2.5" cy="2.5" r="1.4" fill="var(--brace)" />
+          <pattern id={id} width={trama} height={trama} patternUnits="userSpaceOnUse">
+            <circle cx={trama / 2} cy={trama / 2} r={trama * 0.28} fill="var(--brace)" />
           </pattern>
         </defs>
       )}

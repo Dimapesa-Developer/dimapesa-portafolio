@@ -134,13 +134,13 @@ export default function CV() {
                 <T es="código, diseño y sistemas" en="code, design & systems" />
               </p>
             </div>
-            {/* Retrato entre llaves de puntos, como en el sitio */}
-            <div className="relative mx-auto w-[108px] self-end md:mx-0 md:mr-10">
-              <Llave puntos className="absolute right-[calc(100%+6px)] top-0 h-full w-auto" />
-              <div className="relative aspect-[4/5] [mask-image:linear-gradient(to_bottom,#000_80%,transparent)]">
-                <Image src={asset("/img/diego-recorte.webp")} alt="Diego Martin Pelayo Salazar" fill sizes="108px" className="object-cover object-[50%_20%]" priority />
+            {/* Retrato entre llaves de puntos, como en el sitio; se apoya en la línea de la cabecera */}
+            <div className="relative mx-auto w-[134px] self-end md:mx-0 md:-mb-5 md:mr-[72px]">
+              <Llave puntos trama={8} className="absolute right-[calc(100%+6px)] top-0 h-full w-auto" />
+              <div className="relative aspect-[4/5]">
+                <Image src={asset("/img/diego-recorte.webp")} alt="Diego Martin Pelayo Salazar" fill sizes="134px" className="object-cover object-[50%_18%]" priority />
               </div>
-              <Llave puntos cierre className="absolute left-[calc(100%+6px)] top-0 h-full w-auto" />
+              <Llave puntos cierre trama={8} className="absolute left-[calc(100%+6px)] top-0 h-full w-auto" />
             </div>
           </header>
 

@@ -42,7 +42,7 @@ export default function SobreMi() {
         <div className="flex justify-center md:col-span-5 md:col-start-8 md:self-center">
           <div className="relative w-[min(44vw,300px)] md:w-[min(18vw,320px)]">
             <Llave puntos className="absolute right-[calc(100%+4%)] top-0 h-full w-auto" />
-            <ImageReveal className="aspect-[4/5] [mask-image:linear-gradient(to_bottom,#000_82%,transparent)]">
+            <ImageReveal className="aspect-[4/5] [mask-image:linear-gradient(to_bottom,#000_92%,transparent)]">
               <Image src={asset("/img/diego-recorte.webp")} alt="Diego Martin Pelayo Salazar" fill priority sizes="(min-width: 768px) 18vw, 44vw" className="object-cover object-[50%_25%]" />
             </ImageReveal>
             <Llave puntos cierre className="absolute left-[calc(100%+4%)] top-0 h-full w-auto" />

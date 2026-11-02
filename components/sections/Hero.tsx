@@ -269,7 +269,7 @@ export function Hero() {
           transition={{ duration: reducido ? DUR.reducido : 1.1, ease: EASE, delay: reducido ? 0 : 0.35 }}
         >
           <motion.div
-            className="absolute inset-0 [mask-image:linear-gradient(to_bottom,#000_80%,transparent)]"
+            className="absolute inset-0 [mask-image:linear-gradient(to_bottom,#000_92%,transparent)]"
             initial={{ scale: reducido ? 1 : 1.15 }}
             animate={listo ? { scale: 1 } : undefined}
             transition={{ duration: 2.4, ease: EASE, delay: 0.35 }}
