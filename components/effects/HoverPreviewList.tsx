@@ -43,6 +43,9 @@ export function HoverPreviewList({ filas }: { filas: Fila[] }) {
                 {"{"}
               </span>
               {f.titulo}
+              <span className="ml-[0.12em] inline-block font-serif font-normal text-brace-text opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+                {"}"}
+              </span>
             </span>
             <span className="meta hidden md:col-span-3 md:col-start-10 md:block">{f.detalle}</span>
             {/* En pantallas táctiles: miniatura fija */}
