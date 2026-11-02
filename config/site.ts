@@ -2,12 +2,12 @@ export const site = {
   nombre: "DIMAPESA",
   persona: "Diego Martin Pelayo Salazar",
   url: "https://dimapesa-developer.github.io/dimapesa-portafolio",
-  // TODO(Diego): correo público de contacto (el sitio v1 no tenía uno)
-  correo: "",
-  ubicacion: "México",
+  correo: "dimapesa.trabajo@gmail.com",
+  ubicacion: "Tepic, Nayarit",
   coordenadas: "23.2494° N",
   redes: {
     github: "https://github.com/Dimapesa-Developer",
+    linkedin: "https://www.linkedin.com/in/diego-martin-pelayo-salazar/",
   },
 } as const;
 

@@ -28,6 +28,9 @@ export default function Contacto() {
           <a href={site.redes.github} target="_blank" rel="noopener" className="llaves w-fit">
             GitHub
           </a>
+          <a href={site.redes.linkedin} target="_blank" rel="noopener" className="llaves w-fit">
+            LinkedIn
+          </a>
         </div>
       </div>
       <div className="md:col-span-5 md:col-start-8 md:pt-6">

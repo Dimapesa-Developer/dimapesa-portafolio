@@ -208,10 +208,17 @@ html[data-intro="on"] [data-header] {
   .cv-pagina {
     padding: 0 !important;
   }
+  .cv-hojas {
+    gap: 0 !important;
+  }
   .cv-hoja {
+    break-after: page;
     border: 0 !important;
     width: 816px;
     min-height: 1056px;
     max-width: none;
+  }
+  .cv-hoja:last-child {
+    break-after: auto;
   }
 }

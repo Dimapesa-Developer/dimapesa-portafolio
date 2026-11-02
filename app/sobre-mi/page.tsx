@@ -7,7 +7,7 @@ import { ImageReveal } from "@/components/motion/ImageReveal";
 import { Reveal } from "@/components/motion/Reveal";
 import { BotonPrincipal } from "@/components/ui/Boton";
 import { Llave } from "@/components/brand/LlaveD";
-import { HERRAMIENTAS, IconoHerramienta } from "@/components/brand/Herramientas";
+import { GRUPOS, IconoHerramienta } from "@/components/brand/Herramientas";
 
 export const metadata: Metadata = {
   title: "Sobre mí",
@@ -87,24 +87,38 @@ export default function SobreMi() {
 
       <section className="grid gap-10 border-t border-line px-4 py-24 md:grid-cols-12 md:px-8 md:py-36">
         <h2 className="display-md md:col-span-4">
-          <T es={<>Herramientas<br />y lenguajes</>} en={<>Tools <T es="Herramientas" en="Tools" />amp;<br />languages</>} />
+          <T es={<>Herramientas<br />y lenguajes</>} en={<>Tools &amp;<br />languages</>} />
         </h2>
-        <ul className="flex flex-wrap gap-3 md:col-span-7 md:col-start-6">
-          {HERRAMIENTAS.map((h, i) => (
-            <Reveal
-              as="li"
-              key={h.nombre}
-              delay={i * 0.03}
-              className="group inline-flex items-center gap-2.5 rounded-full border border-line py-2.5 pl-3.5 pr-5 text-[15px] transition-colors duration-300 hover:border-brace"
-            >
-              <IconoHerramienta
-                nombre={h.nombre}
-                className="size-[18px] shrink-0 text-muted transition-colors duration-300 group-hover:text-brace-text"
-              />
-              {h.nombre}
-            </Reveal>
+        <div className="grid gap-10 md:col-span-7 md:col-start-6">
+          {GRUPOS.map((g) => (
+            <div key={g.id}>
+              <h3 className="meta mb-4">
+                <T es={g.es} en={g.en} />
+              </h3>
+              <ul className="flex flex-wrap gap-2.5">
+                {g.items.map((h, i) => (
+                  <Reveal
+                    as="li"
+                    key={h.nombre}
+                    delay={i * 0.03}
+                    className="group inline-flex items-center gap-2.5 rounded-full border border-line py-2.5 pl-3.5 pr-5 text-[15px] transition-colors duration-300 hover:border-brace"
+                  >
+                    <IconoHerramienta
+                      nombre={h.nombre}
+                      className="size-[18px] shrink-0 text-muted transition-colors duration-300 group-hover:text-brace-text"
+                    />
+                    {h.nombre}
+                    {h.nota && (
+                      <span className="text-muted">
+                        <T es={h.nota.es} en={h.nota.en} />
+                      </span>
+                    )}
+                  </Reveal>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
         <div className="md:col-span-7 md:col-start-6">
           <div className="flex flex-wrap items-center gap-6">
             <BotonPrincipal href="/contacto">

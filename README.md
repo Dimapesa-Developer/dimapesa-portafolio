@@ -32,10 +32,8 @@ Imágenes en `public/img/` (webp, ~1600px de ancho). MP3 en `public/audio/`. Tod
 Todo texto es bilingüe con `<T es="…" en="…" />`; el idioma y el tema se guardan en el navegador.
 
 ## Pendiente
-- [ ] Correo público de contacto (`config/site.ts → correo`); hoy el formulario abre el correo sin destinatario.
 - [ ] Imágenes de Visuales con IA, pistas de SUNO y más sitios.
-- [ ] Trayectoria real en Sobre mí y en el CV (`EXPERIENCIA` y `FORMACION` en `data/cv.ts`; las secciones vacías no se muestran).
-- [ ] Nivel de inglés en el CV.
+- [ ] Nombres de los cursos de Platzi para el CV (`FORMACION_CONTINUA` en `data/cv.ts`).
 - [ ] Blog: cuando exista la primera nota, agregar `app/blog/[slug]/page.tsx` (con `generateStaticParams`) y contenido en MDX.
 
 ## Publicación (GitHub Pages)

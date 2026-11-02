@@ -30,6 +30,9 @@ export function Footer() {
           <a href={site.redes.github} target="_blank" rel="noopener" className="llaves text-muted hover:text-text">
             GitHub
           </a>
+          <a href={site.redes.linkedin} target="_blank" rel="noopener" className="llaves text-muted hover:text-text">
+            LinkedIn
+          </a>
         </div>
       </div>
 
