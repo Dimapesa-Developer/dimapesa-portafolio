@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+/* Tema por atributo: html[data-theme="dark" | "light"] (oscuro por defecto) */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root,
+[data-theme="dark"] {
+  --bg: #050505;
+  --text: #f7f7f2;
+  --muted: #a2a29b; /* 7.9:1 */
+  --surface: #11110f;
+  --surface-2: #1a1a17;
+  --line: rgb(247 247 242 / 0.14);
+  --violet: #8247ff; /* decoración y superficies */
+  --violet-text: #a98bff; /* texto sobre bg, 7.6:1 */
+  --lime: #b6ff55; /* superficies: botón principal, caret, chips */
+  /* Las llaves cambian con el tema, como en la v1: lima en oscuro, violeta en claro */
+  --brace: #b6ff55; /* decoración: logo, partículas, llaves */
+  --brace-text: #b6ff55; /* texto, 16.9:1 */
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #f3f3ee;
+  --text: #0a0a0a;
+  --muted: #5c5c56; /* 6.0:1 */
+  --surface: #e6e6df;
+  --surface-2: #dadad2;
+  --line: rgb(10 10 10 / 0.16);
+  --violet: #8247ff;
+  --violet-text: #6a2ff0; /* 5.8:1 */
+  --lime: #b6ff55;
+  --brace: #8247ff;
+  --brace-text: #6a2ff0; /* 5.8:1 */
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-violet: var(--violet);
+  --color-violet-text: var(--violet-text);
+  --color-lime: var(--lime);
+  --color-brace: var(--brace);
+  --color-brace-text: var(--brace-text);
+  --color-ink: #050505;
+  --color-paper: #f7f7f2;
+  --font-display: var(--font-bricolage), "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-bricolage), "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-instrument), Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --ease-editorial: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.4s var(--ease-editorial), color 0.4s var(--ease-editorial);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  font-variation-settings: "opsz" 14;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* Idioma: el HTML trae ambos textos; el atributo decide cuál se ve */
+html:not([data-lang="en"]) .t-en,
+html[data-lang="en"] .t-es {
+  display: none;
+}
+
+/* Titulares gigantes: grotesca con eje óptico al máximo */
+@utility display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 13vw, 210px);
+  font-weight: 600;
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+  font-variation-settings: "opsz" 96;
+}
+
+@utility display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 8vw, 128px);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  font-variation-settings: "opsz" 96;
+}
+
+@utility display-md {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4.2vw, 60px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 72;
+}
+
+/* Voz humana: serif itálica */
+@utility voz {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Etiquetas pequeñas en sentence case */
+@utility meta {
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Sistema de llaves: envuelve lo activo / enfocado.
+   Las llaves flotan fuera de la caja, así el texto no se mueve ni se desalinea. */
+@utility llaves {
+  position: relative;
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    font-family: var(--font-serif);
+    font-style: normal;
+    color: var(--brace);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease-editorial), transform 0.3s var(--ease-editorial);
+  }
+  &::before {
+    content: "{";
+    right: calc(100% + 0.2em);
+    transform: translateX(0.3em);
+  }
+  &::after {
+    content: "}";
+    left: calc(100% + 0.2em);
+    transform: translateX(-0.3em);
+  }
+  &:hover::before,
+  &:hover::after,
+  &:focus-visible::before,
+  &:focus-visible::after,
+  &[aria-current="page"]::before,
+  &[aria-current="page"]::after {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+:focus-visible {
+  outline: 1px solid var(--brace-text);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--lime);
+  color: #050505;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    transition: none;
+  }
+}
+
+/* Durante la intro el header se oculta */
+html[data-intro="on"] [data-header] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* CV: al imprimir solo queda la hoja, tamaño carta y sin márgenes */
+@page {
+  size: letter;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    background: var(--bg);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  [data-header],
+  body > a[href="#contenido"],
+  #contenido ~ footer,
+  .cv-controles {
+    display: none !important;
+  }
+  .cv-pagina {
+    padding: 0 !important;
+  }
+  .cv-hoja {
+    border: 0 !important;
+    width: 816px;
+    min-height: 1056px;
+    max-width: none;
+  }
+}
