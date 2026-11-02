@@ -46,7 +46,7 @@ export const EXPERIENCIA: Puesto[] = [
     cargo: { es: "Diseñador y desarrollador independiente", en: "Freelance designer & developer" },
     lugar: { es: "Proyectos para negocios locales", en: "Projects for local businesses" },
     ciudad: "Nayarit",
-    periodo: { es: "Proyectos independientes", en: "Independent projects" },
+    periodo: { es: "Freelance", en: "Freelance" },
     logros: [
       {
         es: "Compostela Truck Repair (mecánica diésel): diseño y desarrollo de su sitio web y de un CRM para el taller.",
