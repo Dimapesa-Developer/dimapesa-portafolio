@@ -3,20 +3,18 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
 
-/** La tira se recorre en horizontal mientras se hace scroll vertical (sección sticky).
- *  Con reduced motion o en pantallas angostas vuelve a scroll horizontal nativo con snap. */
+/** La tira se recorre en horizontal mientras se hace scroll vertical (sección sticky), también en móvil.
+ *  Con reduced motion vuelve a scroll horizontal nativo con snap. */
 export function HorizontalGallery({ children, titulo }: { children: React.ReactNode[]; titulo?: React.ReactNode }) {
   const seccion = useRef<HTMLElement>(null);
   const tira = useRef<HTMLUListElement>(null);
   const [distancia, setDistancia] = useState(0);
-  const [ancha, setAncha] = useState(false);
   const reducido = useReducedMotion();
 
   useEffect(() => {
     const el = tira.current;
     if (!el) return;
     const medir = () => {
-      setAncha(window.innerWidth >= 768);
       setDistancia(Math.max(0, el.scrollWidth - window.innerWidth));
     };
     medir();
@@ -32,7 +30,7 @@ export function HorizontalGallery({ children, titulo }: { children: React.ReactN
   const { scrollYProgress } = useScroll({ target: seccion, offset: ["start start", "end end"] });
   const progreso = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 });
   const x = useTransform(progreso, (p) => -p * distancia);
-  const fijo = ancha && !reducido;
+  const fijo = !reducido;
 
   return (
     <section ref={seccion} style={fijo ? { height: `calc(100svh + ${distancia}px)` } : undefined} className="relative">
@@ -43,7 +41,7 @@ export function HorizontalGallery({ children, titulo }: { children: React.ReactN
           style={fijo ? { x } : undefined}
           className={
             fijo
-              ? "flex w-max gap-6 px-8"
+              ? "flex w-max gap-4 px-4 md:gap-6 md:px-8"
               : "no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 md:gap-6 md:px-8"
           }
         >
@@ -54,7 +52,7 @@ export function HorizontalGallery({ children, titulo }: { children: React.ReactN
           ))}
         </motion.ul>
         {fijo && (
-          <div className="mx-8 mt-8 h-px bg-line">
+          <div className="mx-4 mt-8 h-px bg-line md:mx-8">
             <motion.div className="h-px origin-left bg-brace" style={{ scaleX: progreso }} />
           </div>
         )}

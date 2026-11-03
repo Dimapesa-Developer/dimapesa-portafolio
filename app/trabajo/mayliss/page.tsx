@@ -139,7 +139,7 @@ export default function CasoMayliss() {
         }
       >
         {ESCRITORIO.map((img) => (
-          <figure key={img.src} className="w-[82vw] md:w-[min(62vw,calc((100svh-260px)*1.6))]">
+          <figure key={img.src} className="w-[86vw] md:w-[min(62vw,calc((100svh-260px)*1.6))]">
             <div className="relative aspect-[16/10] overflow-hidden border border-line bg-surface">
               <Image src={asset(`/img/mayliss/${img.src}.webp`)} alt={img.alt} fill sizes="(min-width: 768px) 62vw, 82vw" className="object-cover" />
             </div>
