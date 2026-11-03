@@ -146,16 +146,16 @@ export default function CasoMayliss() {
         }
       >
         {ESCRITORIO.map((img) => (
-          <figure key={img.src} className="w-[86vw] md:w-[min(62vw,calc((100svh-260px)*1.6))]">
+          <figure key={img.src} className="w-[min(86vw,calc((100svh-300px)*1.6))] ancho:w-[min(62vw,calc((100svh-260px)*1.6))]">
             <div className="relative aspect-[16/10] overflow-hidden border border-line bg-surface">
-              <Image src={asset(`/img/mayliss/${img.src}.webp`)} alt={img.alt} fill sizes="(min-width: 768px) 62vw, 82vw" className="object-cover" />
+              <Image src={asset(`/img/mayliss/${img.src}.webp`)} alt={img.alt} fill sizes="(min-width: 1024px) 62vw, 86vw" className="object-cover" />
             </div>
           </figure>
         ))}
       </HorizontalGallery>
 
       {/* Móvil: la tira de teléfonos avanza con el scroll, igual que la galería de escritorio */}
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <HorizontalGallery
           sentido="derecha"
           titulo={
@@ -168,7 +168,7 @@ export default function CasoMayliss() {
           }
         >
           {MOVIL.map((img) => (
-            <figure key={img.src} className="w-[min(58vw,calc((100svh-330px)*0.462))]">
+            <figure key={img.src} className="w-[min(58vw,calc((100svh-400px)*0.462))]">
               <div className="relative aspect-[390/844] overflow-hidden rounded-[18px] border border-line bg-surface">
                 <Image src={asset(`/img/mayliss/${img.src}.webp`)} alt={img.alt} fill sizes="58vw" className="object-cover" />
               </div>
@@ -178,7 +178,7 @@ export default function CasoMayliss() {
       </div>
 
       {/* Escritorio: los cinco teléfonos caben en una fila escalonada */}
-      <section aria-labelledby="movil" className="hidden px-8 py-36 md:block">
+      <section aria-labelledby="movil" className="hidden px-8 py-36 lg:block">
         <div className="mb-12 grid grid-cols-12 gap-6">
           <h2 id="movil" className="display-md col-span-5">
             <T es="Pensado para el pulgar" en="Designed for the thumb" />

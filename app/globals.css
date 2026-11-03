@@ -3,6 +3,9 @@
 /* Tema por atributo: html[data-theme="dark" | "light"] (oscuro por defecto) */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
+/* Pantallas anchas y apaisadas (laptop/escritorio). Tablets verticales y ventanas altas usan el layout apilado. */
+@custom-variant ancho (@media (min-width: 1024px) and (min-aspect-ratio: 5/4));
+
 :root,
 [data-theme="dark"] {
   --bg: #050505;

@@ -260,7 +260,7 @@ export function Hero() {
       {/* Retrato: la "D" dentro de las llaves */}
       <div
         ref={retrato}
-        className="absolute left-1/2 top-[21svh] aspect-[4/5] w-[min(44vw,34svh)] -translate-x-1/2 md:left-auto md:right-[calc(30vw-min(12vw,20svh))] md:top-1/2 md:w-[min(24vw,40svh)] md:translate-x-0 md:-translate-y-[54%]"
+        className="absolute left-1/2 top-[19svh] aspect-[4/5] w-[min(44vw,30svh)] -translate-x-1/2 ancho:left-auto ancho:right-[calc(30vw-min(12vw,20svh))] ancho:top-1/2 ancho:w-[min(24vw,40svh)] ancho:translate-x-0 ancho:-translate-y-[54%]"
       >
         <motion.div
           className="absolute inset-0 overflow-hidden"
@@ -280,7 +280,7 @@ export function Hero() {
               fill
               priority
               fetchPriority="high"
-              sizes="(min-width: 768px) 24vw, 44vw"
+              sizes="(min-width: 1024px) 24vw, 44vw"
               className="object-cover object-[50%_20%]"
             />
           </motion.div>
@@ -291,7 +291,7 @@ export function Hero() {
 
       {/* Titular */}
       <motion.h1
-        className="absolute bottom-[12svh] left-4 z-20 font-display font-semibold leading-[0.86] tracking-[-0.04em] text-[clamp(52px,15vw,156px)] md:bottom-[10svh] md:text-[clamp(52px,8.6vw,156px)] md:left-8"
+        className="absolute bottom-[12svh] left-4 z-20 font-display font-semibold leading-[0.86] tracking-[-0.04em] text-[clamp(48px,min(15vw,9.5svh),156px)] md:left-8 ancho:bottom-[10svh] ancho:text-[clamp(52px,min(8.6vw,15svh),156px)]"
         style={{ fontVariationSettings: '"opsz" 96' }}
         initial="oculto"
         animate={listo ? "visible" : "oculto"}
@@ -317,7 +317,7 @@ export function Hero() {
       </motion.h1>
 
       <motion.div
-        className="absolute bottom-[5svh] left-4 right-4 z-20 flex items-end justify-between gap-6 md:bottom-8 md:left-auto md:right-8 md:w-[min(24vw,40svh)] md:flex-col md:items-start md:gap-3"
+        className="absolute bottom-[5svh] left-4 right-4 z-20 flex items-end justify-between gap-6 md:left-8 md:right-8 ancho:bottom-8 ancho:left-auto ancho:w-[min(24vw,40svh)] ancho:flex-col ancho:items-start ancho:gap-3"
         initial={{ opacity: 0 }}
         animate={listo ? { opacity: 1 } : undefined}
         transition={t(1.1)}
