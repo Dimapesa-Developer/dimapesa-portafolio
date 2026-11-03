@@ -157,6 +157,7 @@ export default function CasoMayliss() {
       {/* Móvil: la tira de teléfonos avanza con el scroll, igual que la galería de escritorio */}
       <div className="md:hidden">
         <HorizontalGallery
+          sentido="derecha"
           titulo={
             <div className="grid gap-4">
               <h2 className="display-md">
