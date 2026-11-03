@@ -12,7 +12,9 @@ declare global {
 
 /** Bloquea o libera el scroll (con o sin Lenis), p. ej. durante la intro o el menú */
 export function bloquearScroll(bloquear: boolean) {
+  // también en <body>: Safari de iOS ignora a veces el bloqueo en <html>
   document.documentElement.style.overflow = bloquear ? "hidden" : "";
+  document.body.style.overflow = bloquear ? "hidden" : "";
   if (bloquear) window.__lenis?.stop();
   else window.__lenis?.start();
 }

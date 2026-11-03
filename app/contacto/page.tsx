@@ -23,7 +23,9 @@ export default function Contacto() {
             </a>
           )}
           <p className="text-muted">
-            {site.ubicacion}, {site.coordenadas}
+            {site.ubicacion}, México
+            <br />
+            <T es="Disponible para remoto, presencial o reubicación" en="Open to remote, on-site or relocation" />
           </p>
           <a href={site.redes.github} target="_blank" rel="noopener" className="llaves w-fit">
             GitHub

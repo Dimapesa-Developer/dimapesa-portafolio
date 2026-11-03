@@ -27,7 +27,7 @@ export function LangToggle({ className = "" }: { className?: string }) {
     <button
       type="button"
       onClick={cambiar}
-      className={`text-sm transition-opacity hover:opacity-70 ${className}`}
+      className={`-mx-2 px-2 py-3 text-sm transition-opacity hover:opacity-70 ${className}`}
       aria-label={idioma === "es" ? "Switch to English" : "Cambiar a español"}
     >
       <span className={idioma === "es" ? "text-text" : "text-muted"}>ES</span>
@@ -53,7 +53,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     <button
       type="button"
       onClick={cambiar}
-      className={`grid size-9 place-items-center rounded-full border border-line transition-colors hover:border-text ${className}`}
+      className={`grid size-10 place-items-center rounded-full border border-line transition-colors hover:border-text ${className}`}
       aria-label={tema === "dark" ? "Usar tema claro" : "Usar tema oscuro"}
     >
       {/* Media luna que gira al cambiar de tema */}

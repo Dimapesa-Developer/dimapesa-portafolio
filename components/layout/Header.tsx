@@ -31,6 +31,8 @@ export function Header() {
   useEffect(() => {
     bloquearScroll(abierto);
     if (!abierto) return;
+    // lleva el foco al primer link del menú (teclado y lectores de pantalla)
+    requestAnimationFrame(() => document.querySelector<HTMLAnchorElement>("#menu-movil a")?.focus({ preventScroll: true }));
     const alEscape = (e: KeyboardEvent) => e.key === "Escape" && setAbierto(false);
     window.addEventListener("keydown", alEscape);
     return () => window.removeEventListener("keydown", alEscape);
@@ -70,7 +72,7 @@ export function Header() {
             <ThemeToggle />
             <button
               type="button"
-              className="text-[15px] lg:hidden"
+              className="-mr-2 px-2 py-3 text-[15px] lg:hidden"
               aria-expanded={abierto}
               aria-controls="menu-movil"
               onClick={() => setAbierto((v) => !v)}

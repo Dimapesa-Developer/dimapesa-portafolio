@@ -41,7 +41,7 @@ export function Reproductor({ pistas, vacio }: { pistas: Pista[]; vacio: React.R
     return (
       <div className="border border-line bg-surface p-6 md:p-10">
         <p className="font-mono text-[clamp(18px,3vw,32px)] uppercase tracking-[0.06em] text-brace-text">
-          <SplitFlap texto="SESION 01 {EN PREPARACION}" />
+          <SplitFlap texto="SESIÓN 01 {EN PREPARACIÓN}" />
         </p>
         <p className="mt-6 max-w-[48ch] text-muted">{vacio}</p>
       </div>

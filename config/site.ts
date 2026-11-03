@@ -4,7 +4,7 @@ export const site = {
   url: "https://dimapesa-developer.github.io/dimapesa-portafolio",
   correo: "dimapesa.trabajo@gmail.com",
   ubicacion: "Tepic, Nayarit",
-  coordenadas: "23.2494° N",
+  coordenadas: "21.50° N, 104.89° O", // Tepic
   redes: {
     github: "https://github.com/Dimapesa-Developer",
     linkedin: "https://www.linkedin.com/in/diego-martin-pelayo-salazar/",

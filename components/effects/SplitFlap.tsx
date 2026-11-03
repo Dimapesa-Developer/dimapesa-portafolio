@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
 
-const SIGNOS = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789{}";
+const SIGNOS = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ0123456789{}";
 
 /** Letrero tipo aeropuerto: cada letra baraja caracteres antes de asentarse. Se dispara cuando cambia `texto`. */
 export function SplitFlap({ texto, className = "" }: { texto: string; className?: string }) {

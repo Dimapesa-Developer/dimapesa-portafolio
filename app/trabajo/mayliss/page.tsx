@@ -70,6 +70,13 @@ const MOVIL = [
   { src: "movil-pie", alt: "Pie de página negro con el logotipo" },
 ];
 
+const TEXTO_MOVIL = (
+  <T
+    es="Menú de texto en lugar de hamburguesa, fotos a sangre, miniaturas fijas donde no hay cursor y un botón de WhatsApp que aparece al salir de la portada."
+    en="A text menu instead of a hamburger, full-bleed photos, fixed thumbnails where there is no cursor and a WhatsApp button that appears after the cover."
+  />
+);
+
 export default function CasoMayliss() {
   return (
     <main>
@@ -147,23 +154,41 @@ export default function CasoMayliss() {
         ))}
       </HorizontalGallery>
 
-      <section aria-labelledby="movil" className="px-4 py-24 md:px-8 md:py-36">
-        <div className="mb-12 grid gap-6 md:grid-cols-12">
-          <h2 id="movil" className="display-md md:col-span-5">
+      {/* Móvil: la tira de teléfonos avanza con el scroll, igual que la galería de escritorio */}
+      <div className="md:hidden">
+        <HorizontalGallery
+          titulo={
+            <div className="grid gap-4">
+              <h2 className="display-md">
+                <T es="Pensado para el pulgar" en="Designed for the thumb" />
+              </h2>
+              <p className="max-w-[46ch] text-[15px] text-muted">{TEXTO_MOVIL}</p>
+            </div>
+          }
+        >
+          {MOVIL.map((img) => (
+            <figure key={img.src} className="w-[min(58vw,calc((100svh-330px)*0.462))]">
+              <div className="relative aspect-[390/844] overflow-hidden rounded-[18px] border border-line bg-surface">
+                <Image src={asset(`/img/mayliss/${img.src}.webp`)} alt={img.alt} fill sizes="58vw" className="object-cover" />
+              </div>
+            </figure>
+          ))}
+        </HorizontalGallery>
+      </div>
+
+      {/* Escritorio: los cinco teléfonos caben en una fila escalonada */}
+      <section aria-labelledby="movil" className="hidden px-8 py-36 md:block">
+        <div className="mb-12 grid grid-cols-12 gap-6">
+          <h2 id="movil" className="display-md col-span-5">
             <T es="Pensado para el pulgar" en="Designed for the thumb" />
           </h2>
-          <p className="max-w-[46ch] text-muted md:col-span-5 md:col-start-8">
-            <T
-              es="Menú de texto en lugar de hamburguesa, fotos a sangre, miniaturas fijas donde no hay cursor y un botón de WhatsApp que aparece al salir de la portada."
-              en="A text menu instead of a hamburger, full-bleed photos, fixed thumbnails where there is no cursor and a WhatsApp button that appears after the cover."
-            />
-          </p>
+          <p className="col-span-5 col-start-8 max-w-[46ch] text-muted">{TEXTO_MOVIL}</p>
         </div>
-        <ul className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 md:mx-0 md:grid md:grid-cols-5 md:overflow-visible md:px-0">
+        <ul className="grid grid-cols-5 gap-4">
           {MOVIL.map((img, i) => (
-            <li key={img.src} className={`w-[62vw] shrink-0 snap-start md:w-auto ${i % 2 ? "md:translate-y-16" : ""}`}>
+            <li key={img.src} className={i % 2 ? "translate-y-16" : ""}>
               <ImageReveal className="aspect-[390/844] overflow-hidden rounded-[18px] border border-line bg-surface">
-                <Image src={asset(`/img/mayliss/${img.src}.webp`)} alt={img.alt} fill sizes="(min-width: 768px) 19vw, 62vw" className="object-cover" />
+                <Image src={asset(`/img/mayliss/${img.src}.webp`)} alt={img.alt} fill sizes="19vw" className="object-cover" />
               </ImageReveal>
             </li>
           ))}
