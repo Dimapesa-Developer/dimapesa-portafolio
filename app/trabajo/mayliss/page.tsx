@@ -7,6 +7,7 @@ import { BotonPrincipal } from "@/components/ui/Boton";
 import { ImageReveal } from "@/components/motion/ImageReveal";
 import { Reveal } from "@/components/motion/Reveal";
 import { HorizontalGallery } from "@/components/effects/HorizontalGallery";
+import { VideoVertical } from "@/components/sections/VideoVertical";
 
 export const metadata: Metadata = {
   title: "MayLiss, caso de estudio",
@@ -68,6 +69,44 @@ const MOVIL = [
   { src: "movil-eventos", alt: "Lista de eventos con miniaturas en móvil" },
   { src: "movil-visitanos", alt: "Datos de contacto y horario en móvil" },
   { src: "movil-pie", alt: "Pie de página negro con el logotipo" },
+];
+
+const PASOS_VIDEO = [
+  {
+    t: { es: "Seleccionar las fotos", en: "Pick the photos" },
+    d: {
+      es: "Partí de las fotos de estudio del catálogo y elegí las de mejor luz y pose de cada vestido: Medianoche, Verbena, Soffia y Majestad.",
+      en: "I started from the catalog’s studio photos and picked the best light and pose for each dress: Medianoche, Verbena, Soffia and Majestad.",
+    },
+  },
+  {
+    t: { es: "Darles movimiento con IA", en: "Animate them with AI" },
+    d: {
+      es: "Cada foto pasó por Google Omni para convertirse en un clip: cámara lenta que se acerca al bordado, giros de la modelo y la tela que se mueve con ella.",
+      en: "Each photo went through Google Omni to become a clip: a slow camera moving in on the embroidery, the model turning and the fabric moving with her.",
+    },
+  },
+  {
+    t: { es: "Editar con ritmo de pasarela", en: "Edit with runway pacing" },
+    d: {
+      es: "Ordené los clips como un desfile, sumé música y títulos con el nombre de cada vestido y su evento, en la tipografía y el dorado de la marca.",
+      en: "I sequenced the clips like a runway show and added music plus titles with each dress name and its event, in the brand’s typeface and gold.",
+    },
+  },
+  {
+    t: { es: "Cerrar con la marca", en: "Close with the brand" },
+    d: {
+      es: "Termina con «Estrena sin comprar», la renta desde $350, el logotipo y el WhatsApp: una pieza lista para Reels, TikTok e historias.",
+      en: "It ends with “Wear it new without buying it”, rentals from $350, the logo and WhatsApp: a piece ready for Reels, TikTok and stories.",
+    },
+  },
+];
+
+const FICHA_VIDEO = [
+  { k: { es: "Formato", en: "Format" }, v: { es: "Vertical 9:16, 1080 × 1920", en: "Vertical 9:16, 1080 × 1920" } },
+  { k: { es: "Duración", en: "Length" }, v: { es: "35 segundos, con música", en: "35 seconds, with music" } },
+  { k: { es: "Origen", en: "Source" }, v: { es: "Fotos de estudio del catálogo, sin rodaje", en: "Catalog studio photos, no shoot" } },
+  { k: { es: "Uso", en: "Use" }, v: { es: "Reels, TikTok e historias", en: "Reels, TikTok and stories" } },
 ];
 
 const TEXTO_MOVIL = (
@@ -196,6 +235,51 @@ export default function CasoMayliss() {
         </ul>
       </section>
 
+      <section aria-labelledby="video" className="border-t border-line px-4 py-24 md:px-8 md:py-36">
+        {/* En móvil: título, video y después los pasos. En pantallas grandes el video queda fijo a la derecha. */}
+        <div className="grid gap-12 md:grid-cols-12 md:gap-x-8 md:gap-y-12">
+          <div className="md:col-span-6 lg:col-span-7">
+            <h2 id="video" className="display-lg">
+              <T es={<>De la foto<br />al movimiento</>} en={<>From photo<br />to motion</>} />
+            </h2>
+            <Reveal as="p" className="mt-8 max-w-[52ch] text-[18px] leading-relaxed text-muted">
+              <T
+                es="Un video vertical para redes creado con inteligencia artificial a partir de las fotos que la marca ya tenía. Sin rodaje ni producción extra: el catálogo cobra vida y se convierte en contenido que se siente de campaña."
+                en="A vertical video for social media, made with artificial intelligence from photos the brand already had. No shoot and no extra production: the catalog comes alive and turns into content that feels like a campaign."
+              />
+            </Reveal>
+          </div>
+          <div className="md:col-span-5 md:col-start-8 md:row-span-2 md:row-start-1 lg:col-span-4 lg:col-start-9">
+            <div className="mx-auto w-full max-w-[380px] md:sticky md:top-28">
+              <VideoVertical
+                src={asset("/media/mayliss-editorial.mp4")}
+                poster={asset("/media/mayliss-editorial-poster.webp")}
+                titulo="Video editorial de MayLiss hecho con IA a partir de fotos del catálogo"
+              />
+            </div>
+          </div>
+          <div className="md:col-span-6 lg:col-span-7">
+            <ol className="grid gap-8 sm:grid-cols-2">
+              {PASOS_VIDEO.map((p, i) => (
+                <Reveal as="li" key={p.t.es} delay={i * 0.08} className="border-t border-line pt-5">
+                  <span className="font-serif text-[48px] leading-none text-violet-text">{i + 1}</span>
+                  <h3 className="mt-3 text-[20px] font-medium leading-tight"><T es={p.t.es} en={p.t.en} /></h3>
+                  <p className="mt-2 text-muted"><T es={p.d.es} en={p.d.en} /></p>
+                </Reveal>
+              ))}
+            </ol>
+            <dl className="mt-12 grid gap-x-8 gap-y-4 sm:grid-cols-2">
+              {FICHA_VIDEO.map((f) => (
+                <div key={f.k.es} className="border-t border-line pt-3">
+                  <dt className="meta"><T es={f.k.es} en={f.k.en} /></dt>
+                  <dd className="mt-1"><T es={f.v.es} en={f.v.en} /></dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </section>
+
       <section className="border-t border-line px-4 py-24 md:px-8 md:py-36">
         <div className="grid gap-10 md:grid-cols-12">
           <h2 className="display-md md:col-span-5">
@@ -206,6 +290,7 @@ export default function CasoMayliss() {
               { es: "Sistema de diseño documentado: tokens, tipografía, movimiento y contraste AA del dorado de marca.", en: "A documented design system: tokens, type, motion and AA contrast for the brand gold." },
               { es: "Landing de una página, mobile-first, con accesibilidad de teclado y reduced motion.", en: "A one-page, mobile-first landing with keyboard access and reduced motion support." },
               { es: "Publicación automática en GitHub Pages en cada cambio.", en: "Automatic publishing to GitHub Pages on every change." },
+              { es: "Video editorial vertical hecho con IA a partir de las fotos del catálogo.", en: "A vertical editorial video made with AI from the catalog photos." },
               { es: "Una guía reutilizable que hoy es la base de este portafolio.", en: "A reusable guide that is now the foundation of this portfolio." },
             ].map((x) => (
               <li key={x.es} className="border-t border-line pt-4">

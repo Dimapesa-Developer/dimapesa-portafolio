@@ -43,3 +43,6 @@ next-env.d.ts
 # capturas de QA y configuración local del editor
 /qa/
 /.claude/
+
+# videos originales (la versión web vive en public/media)
+/media/
