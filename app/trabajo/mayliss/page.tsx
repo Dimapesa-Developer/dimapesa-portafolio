@@ -250,7 +250,7 @@ export default function CasoMayliss() {
             </Reveal>
           </div>
           <div className="md:col-span-5 md:col-start-8 md:row-span-2 md:row-start-1 lg:col-span-4 lg:col-start-9">
-            <div className="mx-auto w-full max-w-[380px] md:sticky md:top-28">
+            <div className="mx-auto w-full max-w-[min(380px,calc((100svh-190px)*0.5625))] md:sticky md:top-28">
               <VideoVertical
                 src={asset("/media/mayliss-editorial.mp4")}
                 poster={asset("/media/mayliss-editorial-poster.webp")}
