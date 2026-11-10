@@ -82,15 +82,22 @@ const PASOS_VIDEO = [
   {
     t: { es: "Darles movimiento con IA", en: "Animate them with AI" },
     d: {
-      es: "Cada foto pasó por Google Omni para convertirse en un clip: cámara lenta que se acerca al bordado, giros de la modelo y la tela que se mueve con ella.",
-      en: "Each photo went through Google Omni to become a clip: a slow camera moving in on the embroidery, the model turning and the fabric moving with her.",
+      es: "Cada foto pasó por Google Omni para convertirse en un clip: cámara lenta que se acerca al bordado, giros de la modelo y la tela que se mueve con ella. Llegar a ese resultado pidió una técnica de prompts más elaborada que una instrucción simple, describiendo cada toma con detalle hasta que el movimiento se sintiera natural.",
+      en: "Each photo went through Google Omni to become a clip: a slow camera moving in on the embroidery, the model turning and the fabric moving with her. Getting there took a more elaborate prompting technique than a single instruction, describing each shot in detail until the motion felt natural.",
+    },
+  },
+  {
+    t: { es: "Componer la música", en: "Compose the music" },
+    d: {
+      es: "La canción es una composición original, creada en SUNO para este video. Su estilo y su ritmo se fueron definiendo con prompts pensados para acompañar el paso de una pasarela.",
+      en: "The song is an original composition, created in SUNO for this video. Its style and rhythm were shaped with prompts written to match the pace of a runway.",
     },
   },
   {
     t: { es: "Editar con ritmo de pasarela", en: "Edit with runway pacing" },
     d: {
-      es: "Ordené los clips como un desfile, sumé música y títulos con el nombre de cada vestido y su evento, en la tipografía y el dorado de la marca.",
-      en: "I sequenced the clips like a runway show and added music plus titles with each dress name and its event, in the brand’s typeface and gold.",
+      es: "Ordené los clips como un desfile al compás de la canción y sumé títulos con el nombre de cada vestido y su evento, en la tipografía y el dorado de la marca.",
+      en: "I sequenced the clips like a runway show, in time with the song, and added titles with each dress name and its event, in the brand’s typeface and gold.",
     },
   },
   {
@@ -104,7 +111,8 @@ const PASOS_VIDEO = [
 
 const FICHA_VIDEO = [
   { k: { es: "Formato", en: "Format" }, v: { es: "Vertical 9:16, 1080 × 1920", en: "Vertical 9:16, 1080 × 1920" } },
-  { k: { es: "Duración", en: "Length" }, v: { es: "35 segundos, con música", en: "35 seconds, with music" } },
+  { k: { es: "Duración", en: "Length" }, v: { es: "35 segundos, con música original", en: "35 seconds, with original music" } },
+  { k: { es: "Herramientas", en: "Tools" }, v: { es: "Google Omni (video) y SUNO (música)", en: "Google Omni (video) and SUNO (music)" } },
   { k: { es: "Origen", en: "Source" }, v: { es: "Fotos de estudio del catálogo, sin rodaje", en: "Catalog studio photos, no shoot" } },
   { k: { es: "Uso", en: "Use" }, v: { es: "Reels, TikTok e historias", en: "Reels, TikTok and stories" } },
 ];
@@ -290,7 +298,7 @@ export default function CasoMayliss() {
               { es: "Sistema de diseño documentado: tokens, tipografía, movimiento y contraste AA del dorado de marca.", en: "A documented design system: tokens, type, motion and AA contrast for the brand gold." },
               { es: "Landing de una página, mobile-first, con accesibilidad de teclado y reduced motion.", en: "A one-page, mobile-first landing with keyboard access and reduced motion support." },
               { es: "Publicación automática en GitHub Pages en cada cambio.", en: "Automatic publishing to GitHub Pages on every change." },
-              { es: "Video editorial vertical hecho con IA a partir de las fotos del catálogo.", en: "A vertical editorial video made with AI from the catalog photos." },
+              { es: "Video editorial vertical hecho con IA a partir de las fotos del catálogo, con música original creada en SUNO.", en: "A vertical editorial video made with AI from the catalog photos, with original music created in SUNO." },
               { es: "Una guía reutilizable que hoy es la base de este portafolio.", en: "A reusable guide that is now the foundation of this portfolio." },
             ].map((x) => (
               <li key={x.es} className="border-t border-line pt-4">

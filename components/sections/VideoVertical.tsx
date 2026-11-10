@@ -85,7 +85,7 @@ export function VideoVertical({ src, poster, titulo, className = "" }: { src: st
       </div>
       <figcaption className="meta mt-3 flex justify-between gap-4">
         <span>
-          <T es="Toca el ícono de sonido para escuchar la música" en="Tap the speaker to hear the music" />
+          <T es="Toca el ícono de sonido para escuchar la canción" en="Tap the speaker to hear the song" />
         </span>
         <span>0:35</span>
       </figcaption>
